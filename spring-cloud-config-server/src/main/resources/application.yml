@@ -1,0 +1,25 @@
+server:
+  port: 4500
+  
+spring:
+  application:
+     name: cloud-config-server
+#  profiles:
+#    active: development    
+  cloud:
+    config:
+      enabled: true
+      server:
+        git:
+          uri: https://github.com/Maruti05/spring-boot-external-config.git
+          #uri: file:///D:Spring-boot/spring-boot-external-config/
+          search-paths: 
+            -  '*service'
+          default-label: master
+#          clone-on-start: true       
+     
+               
+                  
+management:
+  security:
+    enabled: false  

@@ -1,0 +1,32 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: order-service
+          uri: lb://ORDER-SERVICE/
+          predicates:
+          - Path= /order/api/v1/**
+         
+        - id: review-service
+          uri: lb://REVIEW-SERVICE/
+          predicates:
+          - Path= /review/api/v1/**
+         
+        - id: customer-service
+          uri: lb://CUSTOMER-SERVICE/
+          predicates:
+          - Path= /customer/api/v1/**
+         
+        - id: restaurant-service
+          uri: lb://RESTAURANT-SERVICE/
+          predicates:
+          - Path=/restaurant/api/v1/**,/menu-item/api/v1/**
+#management:
+#   endpoint:
+#      gateway:
+#         enabled: true
+#   endpoints:
+#      web:
+#         exposure:
+#            include: gateway          
+          
